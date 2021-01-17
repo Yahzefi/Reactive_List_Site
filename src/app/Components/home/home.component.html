@@ -1,5 +1,10 @@
-<app-add-show></app-add-show>
-<app-recommendations></app-recommendations>
-<!-- <p *ngFor='let show of showArray'>
-    {{show.title}}
-</p> -->
+<div class="header_div">
+    <h2 style="color: black; text-align: center; padding-top: 18px; letter-spacing: 6px; font-size: 48px;">Watchlist Prototype</h2>
+</div>
+<app-add-show (add)="addShow($event)"></app-add-show>
+<h3 style="text-align: center; text-decoration: underline; margin-top: 50px;">RECOMMENDATIONS</h3>
+<app-recommendations
+*ngFor="let item of showList"
+[item] = 'item'
+></app-recommendations>
+
