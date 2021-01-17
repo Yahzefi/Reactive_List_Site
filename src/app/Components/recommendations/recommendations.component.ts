@@ -1,7 +1,5 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-
-import show_list from "../../../assets/recommendations.json";
 import { Show } from "../../Interfaces/Show";
 
 @Component({
@@ -10,16 +8,18 @@ import { Show } from "../../Interfaces/Show";
   styleUrls: ['./recommendations.component.css']
 })
 export class RecommendationsComponent implements OnInit {
-  @Output() sendList: EventEmitter<any> = new EventEmitter();
-  item:Show;
-  fullList:Show = show_list;
+  @Input() item:Show;
 
   constructor() { }
 
   ngOnInit(): any {
-    // this.sendList.emit(this.fullList);
   }
 
-
+  setClasses() {
+    let classes = {
+      'title-text': true
+    }
+    return classes;
+  }
 
 }
