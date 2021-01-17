@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Show } from "../../Interfaces/Show";
 
 @Component({
   selector: 'app-add-show',
@@ -6,16 +7,26 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./add-show.component.css']
 })
 export class AddShowComponent implements OnInit {
-  @Input() showSearch:any
+  @Output() add:EventEmitter<Show> = new EventEmitter();
+  @Input() showName:string;
+  showRating:number;
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   onSubmit() {
+    let randDec = [0.25, 0.5, 0.75]
+    this.showRating = Math.floor(Math.random()*10) + randDec[Math.floor(Math.random()*3)];
+    
     const searchInput = {
-      showName: this.showSearch
-    };
-    console.log(searchInput.showName);
-  }
-}
+      title: this.showName,
+      rating: this.showRating,
+      is_Added: true
+    }
+    console.log(searchInput);
+  this.add.emit(searchInput);
+  };
+};
