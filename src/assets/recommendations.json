@@ -1,5 +1,17 @@
 [
     {
-        "title":"show title"
+        "title":"Supernatural",
+        "rating": 9.5,
+        "is_Added": false
+    },
+    {
+        "title":"Monk",
+        "rating": 6.25,
+        "is_Added": true
+    },
+    {
+        "title":"Psych",
+        "rating": 8.75,
+        "is_Added": false
     }
 ]
