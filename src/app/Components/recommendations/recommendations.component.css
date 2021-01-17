@@ -1,1 +1,29 @@
-/*  */
+div {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    margin:auto;
+    width: 75%;
+}
+    
+    .title_text {
+        color: lightblue;
+        
+    }
+        span {
+            margin-left: 20px;
+            text-decoration: rgba(84, 235, 189, 0.459) underline;
+            font-weight: bold;
+            font-size: 36px;
+            letter-spacing: 2px;
+            color: white;
+        }
+        .rating_span {
+            text-decoration: none;
+        }
+
+    .rating_text {
+        color: yellow;
+        margin-left: 150px;
+    }
+
