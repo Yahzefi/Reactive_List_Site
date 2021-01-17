@@ -1,15 +1,21 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
+import { Show } from "../Interfaces/Show";
 import show_list from "../../assets/recommendations.json";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShowService {
-  fullShowList:any = show_list;
+  show_list:Show[];
   constructor() { }
 
-  sendList(){
-    return this.fullShowList;
+  sendList(item:Show[]):Promise<Show[]>{
+    return new Promise (resolve=>{item=show_list;resolve(item)});
+  }
+
+  newShow(item:Show):Promise<Show>{
+    return new Promise(resolve=>resolve(item))
   }
 }
