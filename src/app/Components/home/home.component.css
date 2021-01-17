@@ -1,1 +1,6 @@
-/*  */
+.header_div {
+    width: 100%;
+    height: 100px;
+    background-color: lightgray;
+    margin-bottom: 50px;
+}
