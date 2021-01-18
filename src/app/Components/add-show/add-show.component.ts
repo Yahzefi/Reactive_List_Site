@@ -10,6 +10,7 @@ export class AddShowComponent implements OnInit {
   @Output() add:EventEmitter<Show> = new EventEmitter();
   @Input() showName:string;
   showRating:number;
+  showID:number;
 
   constructor() { }
 
@@ -22,6 +23,7 @@ export class AddShowComponent implements OnInit {
     this.showRating = Math.floor(Math.random()*10) + randDec[Math.floor(Math.random()*3)];
     
     const searchInput = {
+      id: this.showID,
       title: this.showName,
       rating: this.showRating,
       is_Added: true
