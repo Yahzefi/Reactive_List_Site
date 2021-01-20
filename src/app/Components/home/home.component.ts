@@ -21,7 +21,8 @@ export class HomeComponent implements OnInit {
 
   fillList(){
     this.ss.sendList(this.showArray)
-    .then(list=>this.showList=list);
+    .then(list=>this.showArray=list)
+    .then(array=>this.showList = array);
   }
 
   addShow (title:Show){
@@ -29,12 +30,20 @@ export class HomeComponent implements OnInit {
     .then((item)=>{
       this.listLength=this.showList.length;
       this.listLength++;
-      item.id=this.listLength;
+      item.id = this.listLength;
+      this.showList.forEach((token)=>{
+        while(item.id <= token.id){
+          item.id++;
+        };
+      });
       return item;
     })
     .then((item)=>{
       this.showList.push(item)
-    })
-    .then(()=>console.log(this.showList));
-  }
-}
+    });
+  };
+
+  deleteInDOM(item:Show){
+    this.showList = this.showList.filter(token=>token.id !== item.id);
+  };
+};
