@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { Show } from "../../Interfaces/Show";
 
@@ -9,6 +9,7 @@ import { Show } from "../../Interfaces/Show";
 })
 export class RecommendationsComponent implements OnInit {
   @Input() item:Show;
+  @Output() delete:EventEmitter<Show> = new EventEmitter();
 
   constructor() { }
 
@@ -20,6 +21,10 @@ export class RecommendationsComponent implements OnInit {
       'title-text': true
     }
     return classes;
+  }
+
+  removeItem(item:Show){
+    this.delete.emit(item);
   }
 
 }
