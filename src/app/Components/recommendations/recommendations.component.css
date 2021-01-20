@@ -5,11 +5,12 @@
 }
     .list_index {
         margin-left: 118px;
+        margin-top: 12px;
         border: 2px solid black;
         background-color: black;
         border-radius: 36px;
         padding: 8px 16px;
-        height: 28px;
+        height: 56px;
     }
     .list_container {
         border: 1px solid black;
@@ -41,3 +42,12 @@
             .rating_span {
                 text-decoration: none;
             }
+        .del_btn {
+            border: 1px solid red;
+            background-color: red;
+            padding: 0px 12px;
+            border-radius: 64px;
+            height: 38px;
+            align-self: center;
+            margin-left: 32px;
+        }
