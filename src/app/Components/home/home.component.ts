@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
       this.listLength=this.showList.length;
       this.listLength++;
       item.id = this.listLength;
+      item.is_Added = true;
       this.showList.forEach((token)=>{
         while(item.id <= token.id){
           item.id++;
