@@ -1,0 +1,10 @@
+div {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    margin-top: 24px;
+}
+    .search_bar {
+        border: 1px solid black;
+        width: 54ch;
+    }
