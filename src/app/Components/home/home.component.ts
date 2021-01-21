@@ -19,10 +19,19 @@ export class HomeComponent implements OnInit {
     this.fillList();
   }
 
-  fillList(){
-    this.ss.sendList(this.showArray)
-    .then(list=>this.showArray=list)
-    .then(array=>this.showList = array);
+  // fillList(){
+  //   this.ss.sendList(this.showArray)
+  //   .then(list=>this.showArray=list)
+  //   .then(array=>this.showList = array);
+  // }
+
+  fillList() {
+    this.ss.sendList().subscribe(data=>{
+      console.log(data[0].id);
+      this.showArray=data;
+      console.log(this.showArray);
+      this.showList = this.showArray;
+    });
   }
 
   addShow (title:Show){
@@ -44,7 +53,8 @@ export class HomeComponent implements OnInit {
     });
   };
 
-  deleteInDOM(item:Show){
+  deleteShow(item:Show){
+    // Delete in DOM / UI
     this.showList = this.showList.filter(token=>token.id !== item.id);
   };
 };
