@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Show } from "../Interfaces/Show";
-import show_list from "../../assets/recommendations.json";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShowService {
-  show_list:Show[];
-  constructor() { }
+  jsonURL:string = '/assets/recommendations.json'
 
-  sendList(item:Show[]):Promise<Show[]>{
-    return new Promise (resolve=>{item=show_list;resolve(item)});
+  constructor(private http:HttpClient) { }
+
+  sendList():Observable<Show[]>{
+    return this.http.get<Show[]>(this.jsonURL);
   }
 
   newShow(item:Show):Promise<Show>{
