@@ -1,35 +1,24 @@
 <div>
-    <h1 style="text-align: center; font-weight: bold; text-decoration: underline;">TOP 15 SHOWS</h1>
+    <h1 style="text-align: center; font-weight: bold; text-decoration: underline;">TOP 15 SHOWS OF 2018</h1>
     <br><br>
     <div class="table_div">
         <table class="show_table">
-            <th>Show Title</th>
-            <th>Show Rating</th>
-            <th>Add to Recommendations?</th>
-            <tr>
-                <td>Supernatural</td>
-                <td>9.5</td>
-                <button>Add</button>
-            </tr>
-            <tr>
-                <td>Monk</td>
-                <td>7.25</td>
-                <button>Add</button>
-            </tr>
-            <tr>
-                <td>NCIS</td>
-                <td>8.0</td>
-                <button>Add</button>
-            </tr>
-            <tr>
-                <td>Psych</td>
-                <td>6.50</td>
-                <button>Add</button>
-            </tr>
-            <tr>
-                <td>How I Met Your Mother</td>
-                <td>9.25</td>
-                <button>Add</button>
+            <th style="font-size: 36px; letter-spacing: 18px; text-align:left;">Show Title</th>
+            <th style="font-size: 36px; letter-spacing: 12px;"></th>
+            <th style="font-size: 36px; letter-spacing: 12px;">Rating</th>
+            <th style="vertical-align:bottom; text-decoration: underline;">Add to Recommendations?</th>
+            <tr *ngFor="let show of topShows">
+                <td>
+                    <span class="td_span">{{ show.id }}</span>
+                    <a href= "{{ show.url }}" target="_blank">
+                        <span class="title_span">{{ show.title }}</span>
+                    </a>
+                </td>
+                <td class="show_img">
+                    <img src="{{ show.src }}">
+                </td>
+                <td class="rating_td">{{ show.rating }}</td>
+                <button class="btn btn-info">Add</button>
             </tr>
         </table>
     </div>
