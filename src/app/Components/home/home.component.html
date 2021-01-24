@@ -2,12 +2,23 @@
     <app-add-show 
     (add)="addShow($event)"
     ></app-add-show>
-    <app-search-show></app-search-show>
+    <app-search-show
+    (search)="filterSearch($event)"
+    >
+    </app-search-show>
     <h3 style="text-align: center; text-decoration: underline; margin-top: 50px;">RECOMMENDATIONS</h3>
+    <p 
+    class = "search_results"
+    [class.no_results]="hide_Message"
+    >
+    {{noResults}}
+    </p>
     <app-recommendations
+    style="display: '';"
     *ngFor="let item of showList"
     [item] = 'item'
     (delete)="deleteShow($event)"
-    ></app-recommendations>
+    >
+    </app-recommendations>
 </div>
 
