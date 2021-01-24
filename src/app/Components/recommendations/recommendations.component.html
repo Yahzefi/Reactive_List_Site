@@ -4,10 +4,16 @@
     </p>
     <div class= 'list_container'>
         <p class = 'title_text'>
-            Title: <span>{{item.title}}</span>
+            Title: 
+            <span>
+                <a href="{{item.url}}" target="_blank">
+                    {{item.title}}
+                </a>
+            </span>
         </p>
+        <img src="{{item.img}}" class="item_img">
         <p class = 'rating_text'>
-            Rating: <span class="rating_span">{{item.rating}}</span>
+            Rating: <span class="rating_span">{{item.rating}}/10</span>
         </p>
         <button class="del_btn" (click)="removeItem(item)">X</button>
     </div>
