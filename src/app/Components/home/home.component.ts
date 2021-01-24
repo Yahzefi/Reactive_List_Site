@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { ShowService } from 'src/app/Services/show.service';
 import { Show } from "../../Interfaces/Show";
@@ -12,18 +12,16 @@ export class HomeComponent implements OnInit {
   showArray:Show[];
   showList:Show[];
   listLength:number;
+  hide_Message:boolean;
+  noResults:string;
 
   constructor(private ss:ShowService) { }
 
   ngOnInit(): void {
+    this.noResults = 'No Results Found...';
+    this.hide_Message = true;
     this.fillList();
   }
-
-  // fillList(){
-  //   this.ss.sendList(this.showArray)
-  //   .then(list=>this.showArray=list)
-  //   .then(array=>this.showList = array);
-  // }
 
   fillList() {
     this.ss.sendList().subscribe(data=>{
@@ -56,5 +54,26 @@ export class HomeComponent implements OnInit {
   deleteShow(item:Show){
     // Delete in DOM / UI
     this.showList = this.showList.filter(token=>token.id !== item.id);
+    this.showArray = this.showArray.filter(token=>token.id !== item.id);
+  };
+
+  filterSearch(input:string) {
+    let filteredList = [];
+    this.showList.forEach((token)=>{
+      if(token.title.includes(input) || input.charAt(0).toUpperCase() === token.title.charAt(0)){
+        filteredList.push(token);
+      };
+    });
+    if(input === ''){
+      console.log(this.showArray);
+      this.showList = this.showArray;
+      this.hide_Message = true;
+    } else if( input.length >= 0 && filteredList.length === 0){
+      this.showList = filteredList;
+      this.hide_Message = false;
+    } else if ( filteredList.length > 0 || input.length >= 0 ) {
+      this.showList = filteredList;
+      this.hide_Message = true;
+    }
   };
 };
