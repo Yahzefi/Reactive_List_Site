@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 
 import { Show } from "../../Interfaces/Show";
@@ -9,10 +9,14 @@ import { Show } from "../../Interfaces/Show";
   styleUrls: ['./search-show.component.css']
 })
 export class SearchShowComponent implements OnInit {
-
+  @Output() search:EventEmitter<any> = new EventEmitter();
+  @Input() inputText:string;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onKeyUp() {
+    this.search.emit(this.inputText);
+  }
 }
