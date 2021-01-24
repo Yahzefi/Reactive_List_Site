@@ -1,6 +1,10 @@
-.header_div {
-    width: 100%;
-    height: 100px;
-    background-color: lightgray;
-    margin-bottom: 50px;
+.search_results {
+    display: flex;
+    margin:auto;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.no_results {
+    display: none;
 }
