@@ -1,5 +1,11 @@
 <div>
-    <form (ngSubmit)="onSearchSubmit()">
-        <input class="search_bar" type="search" placeholder="Search Show...">
+    <form (keyup)="onKeyUp()">
+        <input 
+        class="search_bar" 
+        type="search" 
+        placeholder="Search Show..."
+        name="inputText"
+        [(ngModel)]="inputText"
+        >
     </form>
 </div>
