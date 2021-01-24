@@ -1,9 +1,39 @@
-.recForm {
-    text-align: center;
+button {
+    width: 250px;
+    font-size: 20px;
+    letter-spacing: 4px;
 }
-    label {
-        font-size: 24px;
+
+label{
+    padding: 12px;
+    border: 2px solid white;
+    margin-top:12px;
+    margin-bottom: 12px;
+    border-radius: 24px;
+}
+input{
+    border: 2px solid grey;
+}
+    .recForm {
+        text-align: center;
     }
-    .input_text {
-        width: 500px;
-    }
+        label {
+            font-size: 24px;
+        }
+        .input_text {
+            width: 500px;
+        }
+        .rate_text {
+            width: 100px;
+            height: 50px;
+            margin:auto;
+        }
+        .show-rate_span {
+            color: gold;
+            font-size:36px;
+            vertical-align: bottom;
+            margin-left: 12px;
+        }
+        .show_img {
+            margin:auto;
+        }
