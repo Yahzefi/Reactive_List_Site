@@ -1,7 +1,32 @@
 <div class="recForm">
     <form (ngSubmit)='onSubmit()'>
-        <label for="showName">Enter the Name of a TV Show!</label><br><br>
-        <input class="input_text" type="text" name="showName" [(ngModel)]="showName"><br><br>
-        <input type="submit" value="Search">
+        <label for="showName">Enter the Name of a TV Show!</label>
+        <br>
+        <input 
+        placeholder="Add a Show..." 
+        class="input_text" 
+        type="text" 
+        name="showName" 
+        [(ngModel)]="showName">
+        <br><br>
+        <label for="showRate">Give a Score!</label><br>
+        <input 
+        placeholder="Rate Show..." 
+        class="rate_text" 
+        type="text" 
+        name="showRate" 
+        [(ngModel)]="showRate">
+        <span class="show-rate_span">/10</span>
+        <br><br>
+        <label for="showIMG">Add An Image!</label><br>
+        <input 
+        placeholder="Input Image URL Here..."
+        class="show_img" 
+        type="text" 
+        name="showIMG" 
+        [(ngModel)]="showIMG"
+        >
+        <br><br><br>
+        <button class="btn btn-success">ADD SHOW</button>
     </form>
 </div>
