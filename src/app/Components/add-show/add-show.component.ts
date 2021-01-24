@@ -8,9 +8,10 @@ import { Show } from "../../Interfaces/Show";
 })
 export class AddShowComponent implements OnInit {
   @Output() add:EventEmitter<Show> = new EventEmitter();
-  @Input() showName:string;
-  showRating:number;
   showID:number;
+  @Input() showName:string;
+  @Input() showRate:number;
+  @Input() showIMG:string;
 
   constructor() { }
 
@@ -19,16 +20,24 @@ export class AddShowComponent implements OnInit {
   }
 
   onSubmit() {
-    let randDec = [0.25, 0.5, 0.75]
-    this.showRating = Math.floor(Math.random()*10) + randDec[Math.floor(Math.random()*3)];
+    // let randDec = [0.25, 0.5, 0.75]
+    // this.showRating = Math.floor(Math.random()*10) + randDec[Math.floor(Math.random()*3)];
     
     const searchInput = {
       id: this.showID,
       title: this.showName,
-      rating: this.showRating,
-      is_Added: true
+      rating: this.showRate,
+      is_Added: true,
+      url: "https://www.imdb.com",
+      img: this.showIMG
     }
-    console.log(searchInput);
-  this.add.emit(searchInput);
+    if(this.showName === '' || this.showRate == null || this.showIMG === ''){
+      alert('Error:  Please Fill Out All Input Fields');
+    } else {
+      this.add.emit(searchInput);
+    }
+    this.showName = '';
+    this.showRate = null;
+    this.showIMG = '';
   };
 };
