@@ -3,7 +3,7 @@
         "id": 1,
         "title":"Supernatural",
         "rating": 8.4,
-        "is_Added": false,
+        "is_Added": true,
         "url": "https://www.imdb.com/title/tt0460681/?ref_=nv_sr_srsg_0",
         "img": "https://m.media-amazon.com/images/M/MV5BNzRmZWJhNjUtY2ZkYy00N2MyLWJmNTktOTAwY2VkODVmOGY3XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UX182_CR0,0,182,268_AL_.jpg"
     },
@@ -19,7 +19,7 @@
         "id": 3,
         "title":"Psych",
         "rating": 8.3,
-        "is_Added": false,
+        "is_Added": true,
         "url": "https://www.imdb.com/title/tt0491738/?ref_=nv_sr_srsg_0",
         "img": "https://m.media-amazon.com/images/M/MV5BYzRkOWRmNGUtYzM0Zi00ZGRkLThhMjktNmI4NDYwZDVmODBkXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_UY268_CR0,0,182,268_AL_.jpg"
     }
