@@ -1,3 +1,22 @@
 <div class="primary_div">
-    <h1>Currently Airing Shows</h1>
+    <h1>TEN CURRENTLY AIRING SHOWS</h1>
+</div>
+<div class="airShow_div">
+    <table class="airShow_table">
+        <th style="font-size: 36px; letter-spacing: 18px; text-align:left;">Show Title</th>
+        <th style="font-size: 36px; letter-spacing: 12px;"></th>
+        <th style="font-size: 36px; letter-spacing: 12px;">Rating</th>
+        <tr *ngFor="let airShow of airingShows">
+            <td>
+                <span class="td_span">{{ airShow.id }}</span>
+                <a href= "{{ airShow.url }}" target="_blank">
+                    <span class="title_span">{{ airShow.title }}</span>
+                </a>
+            </td>
+            <td class="airShow_img">
+                <img src="{{ airShow.src }}">
+            </td>
+            <td class="rating_td">{{ airShow.rating }}</td>
+        </tr>
+    </table>
 </div>
