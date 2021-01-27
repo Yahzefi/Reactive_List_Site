@@ -5,7 +5,6 @@
     background-size: 1980px 150px;
     background-repeat: no-repeat;
 }
-
     .header_div {
         position: relative;
         z-index: 1;
@@ -13,7 +12,6 @@
         left: 625px;
         width: 33%;
     }
-
         .header_div h2 {
         text-align: center;
         color: black;
@@ -28,7 +26,6 @@
     justify-content: center;
     margin-bottom: 50px;
 }
-
     .nav_div a:hover{
         color: white;
         cursor: pointer;
