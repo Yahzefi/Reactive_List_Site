@@ -6,7 +6,6 @@
             <th style="font-size: 36px; letter-spacing: 18px; text-align:left;">Show Title</th>
             <th style="font-size: 36px; letter-spacing: 12px;"></th>
             <th style="font-size: 36px; letter-spacing: 12px;">Rating</th>
-            <th style="vertical-align:bottom; text-decoration: underline;">Add to Recommendations?</th>
             <tr *ngFor="let show of topShows">
                 <td>
                     <span class="td_span">{{ show.id }}</span>
@@ -18,7 +17,6 @@
                     <img src="{{ show.src }}">
                 </td>
                 <td class="rating_td">{{ show.rating }}</td>
-                <button class="btn btn-info">Add</button>
             </tr>
         </table>
     </div>
