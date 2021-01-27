@@ -16,13 +16,9 @@ export class AddShowComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
   }
 
   onSubmit() {
-    // let randDec = [0.25, 0.5, 0.75]
-    // this.showRating = Math.floor(Math.random()*10) + randDec[Math.floor(Math.random()*3)];
-    
     const searchInput = {
       id: this.showID,
       title: this.showName,
