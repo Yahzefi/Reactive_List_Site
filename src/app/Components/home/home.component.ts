@@ -18,20 +18,34 @@ export class HomeComponent implements OnInit {
   constructor(private ss:ShowService) { }
 
   ngOnInit(): void {
+    window.addEventListener('DOMContentLoaded', ()=>localStorage.clear());
     this.noResults = 'No Results Found...';
     this.hide_Message = true;
     this.fillList();
   }
 
+// Fill Initial Recommended Watchlist
   fillList() {
     this.ss.sendList().subscribe(data=>{
       console.log(data[0].id);
       this.showArray=data;
       console.log(this.showArray);
-      this.showList = this.showArray;
+      if(localStorage.length === 0){
+        this.showList = this.showArray;
+        for(let i=0; i<this.showArray.length; i++){
+          localStorage.setItem("storedShow"+[i+1], JSON.stringify(this.showArray[i]));
+        }
+      } else {
+        this.showList = [];
+        for(let i = 0; i<localStorage.length; i++){
+          this.showList.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+        }
+        this.showList.sort((a:Show, b:Show)=>a.id-b.id);
+      }
     });
   }
 
+// Add Show to Watchlist & Local Storage
   addShow (title:Show){
     this.ss.newShow(title)
     .then((item)=>{
@@ -47,16 +61,20 @@ export class HomeComponent implements OnInit {
       return item;
     })
     .then((item)=>{
-      this.showList.push(item)
+      this.showList.push(item);
+      localStorage.setItem("storedShow"+[item.id], JSON.stringify(item));
     });
   };
 
+// Delete Show From DOM & Local Storage
   deleteShow(item:Show){
     // Delete in DOM / UI
     this.showList = this.showList.filter(token=>token.id !== item.id);
     this.showArray = this.showArray.filter(token=>token.id !== item.id);
+    localStorage.removeItem("storedShow"+[item.id]);
   };
 
+// Displays Shows From Watchlist Which Match Corresponding Characters Within Search Input
   filterSearch(input:string) {
     let filteredList = [];
     this.showList.forEach((token)=>{
@@ -65,8 +83,11 @@ export class HomeComponent implements OnInit {
       };
     });
     if(input === ''){
-      console.log(this.showArray);
-      this.showList = this.showArray;
+      this.showList = [];
+      for(let i = 0; i<localStorage.length; i++){
+        this.showList.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+      }
+      this.showList.sort((a:Show, b:Show)=>a.id-b.id);
       this.hide_Message = true;
     } else if( input.length >= 0 && filteredList.length === 0){
       this.showList = filteredList;
