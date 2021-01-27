@@ -1,3 +1,48 @@
 .primary_div {
     text-align: center;
+    text-decoration: underline;
+    margin-bottom: 48px;
 }
+    .airShow_div {
+        display: flex;
+        margin: auto;
+        justify-content: center;
+    }
+        .airShow_table {
+            border: 4px solid white;
+            width: 75%;
+        }
+            .airShow_table th, tr, td {
+                border: 2px solid purple;
+                width: 75%;
+            }
+            .airShow_table th {
+                text-align: center;
+                font-weight: bold;
+            }
+            .airShow_img {
+                display:flex;
+                margin:auto;
+                margin-top: 12px;
+                border:none;
+                justify-content: center;
+            }
+                .td_span {
+                    font-size: 32px;
+                    position: relative;
+                    left: 8px;
+                    border: 2px solid green;
+                    border-radius: 48px;
+                    padding: 0px 2px;
+                }
+                .rating_td {
+                    text-align: center;
+                    font-size: 24px;
+                    color: rgb(236, 251, 99);
+                    letter-spacing: 2px;
+                }
+                .title_span{
+                    margin-left: 24px;
+                    font-size: 48px;
+                    letter-spacing: 4px;
+                }
